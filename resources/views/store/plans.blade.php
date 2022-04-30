@@ -55,7 +55,11 @@
                         <p class="card-text">
                             <ul class="list-unstyled">
                                 <li>RAM <span class="float-right">{{ $plan->ram }} MB</span></li>
-                                <li>CPU <span class="float-right">{{ $plan->cpu }}%</span></li>
+                                @if ($plan->cpu === 0)
+                                    <li>CPU <span class="float-right">Uncapped</span></li>
+                                @else
+                                    <li>CPU <span class="float-right">{{$plan->cpu }}%</span></li>
+                                @endif
                                 <li>Disk <span class="float-right">{{ $plan->disk }} MB</span></li>
                                 <li>Databases <span class="float-right">{{ $plan->databases }}</span></li>
                                 <li>Backups <span class="float-right">{{ $plan->backups }}</span></li>
